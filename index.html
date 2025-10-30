@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Pulgarcito de América: Una Inmersión en El Salvador</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <style>
+        /* Paleta Inspirada en El Salvador: Añil, Maíz y Fuego */
+        :root {
+            --color-anil: #003366;        /* Azul Índigo Profundo (Bandera/Arte) */
+            --color-maiz: #ffd700;        /* Amarillo Dorado (Maíz/Sol) */
+            --color-pupusa: #cc4400;      /* Naranja/Rojo (Salsa/Fuego) */
+            --color-volcan: #339933;      /* Verde Oliva (Montañas/Naturaleza) */
+            --color-background: #fcfcfc;  /* Fondo muy claro */
+            --color-text: #333333;
+
+            /* Nuevos Colores Temáticos */
+            --color-paisaje: #0099ff;     /* Azul cielo */
+            --color-atracciones: #ff66b2; /* Rosa Chicle */
+            --color-mercado: #8c5d33;     /* Café Tierra */
+            --color-mapa: #990099;        /* Púrpura */
+            --color-general: #00cccc;     /* Turquesa */
+        }
+
+        /* Estilos Generales y Tipografía Cultural */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.7;
+            /* Patrón sutil de montaña o tela */
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect x="0" y="0" width="100" height="100" fill="%23fcfcfc"/><path d="M 0 0 L 50 50 L 0 100" fill="none" stroke="%23f0f0f0" stroke-width="1.5"/></svg>');
+        }
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        /* Encabezado */
+        header {
+            background-color: var(--color-anil);
+            color: white;
+            padding: 20px 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            border-bottom: 5px solid var(--color-maiz);
+        }
+        h1 {
+            font-size: 2em;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Slogan */
+        .slogan-section {
+            text-align: center;
+            padding: 20px 0 40px 0;
+            background-color: white;
+            margin-bottom: 30px;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        .slogan-pulgarcito {
+            font-family: 'Permanent Marker', cursive;
+            font-size: 3.5em;
+            color: var(--color-pupusa);
+            margin: 0;
+            text-shadow: 2px 2px var(--color-maiz);
+        }
+        .slogan-sol {
+            font-size: 1.5em;
+            color: var(--color-anil);
+            font-weight: bold;
+            margin-top: 5px;
+        }
+        
+        /* Contenedor de Tarjetas */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding-top: 10px;
+        }
+
+        /* Estilo para cada Tarjeta de Contenido */
+        .content-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #ddd;
+        }
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Colores de Borde Temático para Tarjetas Existentes */
+        .bandera { border-top: 8px solid var(--color-anil); }
+        .escudo { border-top: 8px solid var(--color-maiz); }
+        .plato-tipico { border-top: 8px solid var(--color-pupusa); }
+        .volcan { border-top: 8px solid var(--color-volcan); }
+        .flor { border-top: 8px solid #ff99ff; }
+        .arbol { border-top: 8px solid #006600; }
+        .ave { border-top: 8px solid #6600cc; }
+
+        /* Colores de Borde Temático para Nuevas Tarjetas */
+        .paisaje { border-top: 8px solid var(--color-paisaje); }
+        .atracciones { border-top: 8px solid var(--color-atracciones); }
+        .mercado { border-top: 8px solid var(--color-mercado); }
+        .mapa { border-top: 8px solid var(--color-mapa); }
+        .el-salvador-general { border-top: 8px solid var(--color-general); }
+
+
+        .card-title {
+            font-family: 'Permanent Marker', cursive;
+            background-color: #f7f7f7;
+            padding: 15px;
+            margin: 0;
+            font-size: 1.8em;
+            color: var(--color-anil);
+            text-align: center;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            margin: 0;
+        }
+
+        .card-body {
+            padding: 20px;
+            font-size: 1em;
+            color: var(--color-text);
+            text-align: justify;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--color-anil);
+            color: white;
+            margin-top: 40px;
+            border-top: 5px solid var(--color-pupusa);
+        }
+        .autor p {
+            margin: 5px 0;
+            font-size: 1em;
+            font-weight: bold;
+            color: var(--color-maiz);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>El Salvador</h1>
+    </header>
+
+    <div class="slogan-section">
+        <p class="slogan-pulgarcito">EL PULGARCITO DE AMÉRICA</p>
+        <p class="slogan-sol">El Salvador es conocido como "El pulgarcito de America", un pequeño país centroamericano que combina la calidez de su gente con una geografía impresionante. Es un destino donde puedes disfrutar del aroma de las pupusas (su plato tipico), contemplar la majestuosidad de sus volcanes que se alzan hacia el cielo, y relajarte en sus costas bañadas por el Pacífico. Un lugar lleno de historia y de un vibrante espíritu de "Dios, Unión y Libertad".</p>
+    </div>
+
+    <div class="container">
+        
+        <div class="card-grid">
+
+            <div class="content-card bandera">
+                <h2 class="card-title">BANDERA</h2>
+                <img class="card-image" src="img/Bandera.jpg" alt="Bandera de El Salvador">
+                <div class="card-body">
+                    <p>Símbolo de la unidad nacional, representa los valores de la libertad, la justicia y la fraternidad.</p>
+                </div>
+            </div>
+
+            <div class="content-card escudo">
+                <h2 class="card-title">ESCUDO NACIONAL</h2>
+                <img class="card-image" src="img/Escudo.jpg" alt="Escudo Nacional de El Salvador">
+                <div class="card-body">
+                    <p>Es el símbolo de la nación, representa el esfuerzo y la lucha de nuestro pueblo por la libertad y la independencia.</p>
+                </div>
+            </div>
+
+            <div class="content-card plato-tipico">
+                <h2 class="card-title">PLATOS TIPICO</h2>
+                <img class="card-image" src="img/comida.jpeg" alt="Pupusas, plato nacional de El Salvador">
+                <div class="card-body">
+                    <p>La gastronomía de El Salvador es un deleite sencillo, sabroso y profundamente arraigado en el maíz, que es el corazón de su cocina. Es una fusión de tradiciones indígenas y sabores que evocan el calor del hogar.La comida salvadoreña es un abrazo de sabor, donde cada bocado te cuenta la historia de su tierra.</p>
+                </div>
+            </div>
+
+            <div class="content-card volcan">
+                <h2 class="card-title">VOLCANES</h2>
+                <img class="card-image" src="img/volcanes.jpeg" alt="Volcán Chinchontepec">
+                <div class="card-body">
+                    <p>Estos gigantes naturales no solo definen el relieve salvadoreño, sino que son destinos turísticos ideales para el senderismo y para admirar la belleza natural del país</p>
+                </div>
+            </div>
+
+            <div class="content-card flor">
+                <h2 class="card-title">FLOR NACIONAL</h2>
+                <img class="card-image" src="img/Flor.jpg" alt="Flor de Izote">
+                <div class="card-body">
+                    <p>La flor de Izote es la flor nacional de El Salvador, un símbolo de la belleza y la riqueza natural del país.</p>
+                </div>
+            </div>
+
+            <div class="content-card arbol">
+                <h2 class="card-title">ÁRBOL NACIONAL</h2>
+                <img class="card-image" src="img/Arbol.jpg" alt="Árbol Maquilishuat">
+                <div class="card-body">
+                    <p>El árbol de Maquilishuat es el árbol nacional de El Salvador, un símbolo de la belleza, la fuerza y la resistencia de nuestro país.</p>
+                </div>
+            </div>
+            
+            <div class="content-card ave">
+                <h2 class="card-title">AVE NACIONAL</h2>
+                <img class="card-image" src="img/T.Ave.jpg" alt="Torogoz, Ave Nacional de El Salvador">
+                <div class="card-body">
+                    <p>El Torogoz es el ave nacional de El Salvador, un símbolo de la paz y la libertad.</p>
+                </div>
+            </div>
+
+            <div class="content-card paisaje">
+                <h2 class="card-title">PAISAJE</h2>
+                <img class="card-image" src="img/PaisajesB.jpeg" alt="Paisaje de la costa salvadoreña">
+                <div class="card-body">
+                    <p>Desde las playas del Pacífico hasta las montañas verdes, El Salvador ofrece un contraste de paisajes que te dejarán sin aliento. Un paraíso para los amantes de la naturaleza.</p>
+                </div>
+            </div>
+
+            <div class="content-card atracciones">
+                <h2 class="card-title">ATRACCIONES</h2>
+                <img class="card-image" src="img/Atracciones.jpeg" alt="Atracciones turísticas de El Salvador">
+                <div class="card-body">
+                    <p>Explora ruinas mayas como Joya de Cerén, surfea en La Bocana, o recorre la Ruta de las Flores. ¡Hay una aventura esperando en cada rincón!</p>
+                </div>
+            </div>
+
+            <div class="content-card mercado">
+                <h2 class="card-title">MERCADO</h2>
+                <img class="card-image" src="img/Mercado.jpeg" alt="Mercado local en El Salvador">
+                <div class="card-body">
+                    <p>Los mercados salvadoreños son el corazón de la vida local. Aquí encontrarás artesanías, frutas frescas y la auténtica calidez de su gente. Una explosión de colores y sabores.</p>
+                </div>
+            </div>
+
+            <div class="content-card mapa">
+                <h2 class="card-title">MAPA</h2>
+                <img class="card-image" src="img/mapa.jpeg" alt="Mapa geográfico de El Salvador">
+                <div class="card-body">
+                    <p>A pesar de ser el país más pequeño de Centroamérica, su mapa encierra una inmensa concentración de cultura, volcanes y playas. Todo al alcance de la mano.</p>
+                </div>
+            </div>
+
+            <div class="content-card el-salvador-general">
+                <h2 class="card-title">EL SALVADOR</h2>
+                <img class="card-image" src="img/El Salvador.jpeg" alt="Vista general de El Salvador">
+                <div class="card-body">
+                    <p>El Salvador es mucho más que sus símbolos; es un país con gente resiliente, una rica historia y un futuro brillante. Descubre la magia de "Dios, Unión y Libertad".</p>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+
+    <footer>
+        <div class="autor">
+            <p>Autor: "Steffany Michelle Alvarado Lopez"</p>
+            <p>Autor: "Cristopher Enmanuel Amaya Portillo"</p>
+            <p>"El Salvador: el pulgarcito que, aunque pequeño en el mapa, es gigante en volcanes, calor humano y el infinito azul de su mar.
+El Salvador: Pequeño en territorio, inmenso en corazón."</p>
+        </div>
+    </footer>
+
+</body>
+</html>
